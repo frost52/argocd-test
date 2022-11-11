@@ -16,7 +16,7 @@ spec:
       labels:
         app: hello-app
     spec:
-      imagePullSecret:
+      imagePullSecrets:
       - name: regcred
       containers:
       - name: hello-deployment
