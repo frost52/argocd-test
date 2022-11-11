@@ -20,5 +20,5 @@ spec:
       - name: regcred
       containers:
       - name: hello-deployment
-        image: yorge/hello:v1
+        image: yorge/hello:v2
         imagePullPolicy: Always
