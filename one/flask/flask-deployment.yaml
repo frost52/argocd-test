@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-app
+  name: hello-deployment
+  annotations:
+    link.argocd.argoproj.io/external-link: https://hub.docker.com/repository/docker/yorge/hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-app
+  template:
+    metadata:
+      labels:
+        app: hello-app
+    spec:
+      imagePullSecret:
+      - name: regcred
+      containers:
+      - name: hello-deployment
+        image: yorge/hello:v1
+        imagePullPolicy: Always
